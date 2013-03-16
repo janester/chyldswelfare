@@ -1,0 +1,17 @@
+.row
+  .small-12.columns
+    %h1 Donations
+
+.row
+  .small-8.small-centered.columns
+    =link_to("Donate", new_donation_path, :remote => true, :class => "button radius")
+    %table#donations_table
+      %tr
+        %th Donor
+        %th Amount
+        %th Date
+      -@donations.each do |donation|
+        %tr
+          %td= User.find(donation.user_id).name
+          %td= donation.amount
+          %td= donation.date

@@ -37,4 +37,13 @@ describe Application do
       expect(application.votes). to eq 10
     end
   end
+
+  describe "#user" do
+    it "belongs to a user" do
+      application = Application.create(tagline:"a", bio:"b", image:"c", age:1, votes:10)
+      user = User.create
+      user.application = application
+      expect(application.user_id).to eq user.id
+    end
+  end
 end

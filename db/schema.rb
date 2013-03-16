@@ -11,6 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+
 ActiveRecord::Schema.define(:version => 20130316192454) do
 
   create_table "users", :force => true do |t|
@@ -20,5 +21,19 @@ ActiveRecord::Schema.define(:version => 20130316192454) do
     t.boolean "is_donor"
     t.boolean "is_applicant"
   end
+end
 
+ActiveRecord::Schema.define(:version => 20130316192915) do
+
+  create_table "applications", :force => true do |t|
+    t.string   "tagline"
+    t.string   "bio"
+    t.string   "image"
+    t.integer  "age"
+    t.integer  "user_id"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "votes",      :default => 0
+
+  end
 end

@@ -10,6 +10,7 @@
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  votes      :integer          default(0)
 #
 
 require "spec_helper"
@@ -27,12 +28,13 @@ describe Application do
       application = Application.create
       expect(application.id).to_not be nil
     end
-    it "has tagline, bio, image, age" do
-      application = Application.create(tagline:"a", bio:"b", image:"c", age:1)
+    it "has tagline, bio, image, age, votes" do
+      application = Application.create(tagline:"a", bio:"b", image:"c", age:1, votes:10)
       expect(application.tagline).to eq "a"
       expect(application.bio).to eq "b"
       expect(application.image).to eq "c"
       expect(application.age). to eq 1
+      expect(application.votes). to eq 10
     end
   end
 end

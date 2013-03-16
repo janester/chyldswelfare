@@ -15,4 +15,5 @@
 
 class Application < ActiveRecord::Base
   attr_accessible :tagline, :bio, :image, :age, :votes
+  belongs_to :user
 end

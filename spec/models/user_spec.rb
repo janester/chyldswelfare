@@ -26,5 +26,13 @@ describe User do
     #   expect(user.id).to be nil
     # end
   end
-end
 
+  describe '#application' do
+    it 'has one application' do
+      user = User.create(name: 'jack', email: 'jack@gmail.com', password: 'a', password_confirmation: 'a')
+      application = Application.create(tagline: 'heyhey', bio: 'hey', image: 'img', age: 26)
+      user.application = application
+      expect(user.application).to eq application
+    end
+  end
+end

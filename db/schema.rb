@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130316192915) do
+ActiveRecord::Schema.define(:version => 20130316201654) do
 
   create_table "applications", :force => true do |t|
     t.string   "tagline"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(:version => 20130316192915) do
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
     t.integer  "votes",      :default => 0
+  end
+
+  create_table "donations", :force => true do |t|
+    t.decimal  "amount"
+    t.date     "date"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|

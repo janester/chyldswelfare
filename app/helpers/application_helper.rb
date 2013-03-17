@@ -15,8 +15,6 @@ module ApplicationHelper
       </li>"+
       "<li class='divider hide-for-small'></li>" +
       "<li>#{link_to('Register', new_user_path, :remote => true)}</li>"
-
-
     end
   end
 end

@@ -46,7 +46,7 @@ end
 def login_to_system
   user = User.create(email:"jane@jane.com", name:"janeliza", password:"abc", password_confirmation:"abc")
   visit login_path
-  fill_in("email", :with => user.email)
-  fill_in("password", :with => "abc")
-  click_button("KickShip")
+  fill_in("login_email", :with => user.email)
+  fill_in("login_password", :with => "abc")
+  click_button("login_button")
 end

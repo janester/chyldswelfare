@@ -5,4 +5,5 @@ Chyldswelfare::Application.routes.draw do
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
   resources :donations
+  resources :applications
 end

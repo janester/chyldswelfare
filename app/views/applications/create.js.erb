@@ -1,0 +1,4 @@
+$('#applications_form').empty();
+$('#applications_form').text("You have succesfully applied!");
+$('#applications_form').fadeOut(3000);
+$('#applications_list').empty().append("<%=j render(:partial => 'applications') %>");

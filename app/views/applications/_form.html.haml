@@ -1,0 +1,10 @@
+= form_for @application, :remote => true do |f|
+  = f.label :tagline
+  = f.text_field :tagline, :autofocus => true
+  = f.label :bio
+  = f.text_area :bio
+  = f.label :image
+  = f.text_field :image
+  = f.label :age
+  = f.number_field :age
+  = f.submit nil, :class => 'button tiny radius success'

@@ -1,0 +1,26 @@
+-if @auth.present?
+  = link_to('Apply', new_application_path, :remote => true, :class => 'button radius success')
+
+#applications_form
+
+#applications_list
+  -@applications.each do |application|
+    .row
+      .small-3.columns
+        #application_image
+          -if application.image.present?
+            =image_tag(@auth.application.image)
+          -else
+            =image_tag('http://insight-dev.glos.ac.uk/departments/lis/lc/PublishingImages/default-profile-image.jpg')
+      .small-7.columns
+        #application_info
+          %div
+            %b Tagline:
+            = application.tagline
+          %div
+            %b Age:
+            = application.age
+          %div
+            %b Bio:
+            = application.bio
+      .small-2.columns

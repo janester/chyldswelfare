@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130317011323) do
+ActiveRecord::Schema.define(:version => 20130317210504) do
 
   create_table "applications", :force => true do |t|
     t.string   "tagline"
-    t.string   "bio"
+    t.text     "bio"
     t.string   "image"
     t.integer  "age"
     t.integer  "user_id"

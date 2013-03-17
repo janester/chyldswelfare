@@ -11,3 +11,16 @@
   width: 100%;
   text-align: center;
 }
+
+#application_image {
+  img {
+    height: 200px;
+    width: 200px;
+  }
+}
+#application_info {
+  div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}

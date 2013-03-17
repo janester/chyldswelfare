@@ -1,0 +1,43 @@
+.row
+  .small-12.columns
+    %h1= @auth.name
+.row
+  .small-5.small-offset-1.columns
+    %h3 Application
+.row
+  .small-3.small-offset-1.columns
+    #application_image
+      -if @auth.application.image.present?
+        =image_tag(@auth.application.image)
+      -else
+        =image_tag('http://insight-dev.glos.ac.uk/departments/lis/lc/PublishingImages/default-profile-image.jpg')
+  .small-6.columns
+    #application_info
+      %div
+        %b Tagline:
+        = @auth.application.tagline
+      %div
+        %b Age:
+        = @auth.application.age
+      %div
+        %b Bio:
+        = @auth.application.bio
+  .small-2.columns
+
+.row
+  .small-5.small-offset-1.columns
+    %h3 Donations
+.row
+  .small-4.small-offset-1.columns
+    %table#user_donations_table
+      %tr
+        %th Amount
+        %th Date
+        -@auth.donations.order(:amount).reverse.each do |donation|
+          %tr
+            %td= number_to_currency(donation.amount)
+            %td= donation.date
+  .small-7.columns
+    #donations_chart
+      hi hi
+

@@ -7,12 +7,14 @@ module ApplicationHelper
       "<li class='divider hide-for-small'></li>" +
       "<li class='has-form'>#{link_to('Apply', '#', :class => 'button tiny alert')}</li>"
     else
-      # "<li><a href='/login' data-dropdown='drop2'>Log In</a></li>" +
-      # "<ul id='drop2' class='f-dropdown content'>" +
-      # "<li>this is drop down content text</li></ul>" +
-      "<li>#{link_to('Register', new_user_path, :remote => true)}</li>" +
+
+      "<li class='has-dropdown'><a href='/login'>Login</a>
+        <ul class='dropdown'>
+          <li>#{render :partial => "session/new"}</li>
+          </ul>
+      </li>"+
       "<li class='divider hide-for-small'></li>" +
-      "<li>#{link_to('Log In', '/login')}</li>"
+      "<li>#{link_to('Register', new_user_path, :remote => true)}</li>"
 
     end
   end

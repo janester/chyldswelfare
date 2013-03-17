@@ -1,5 +1,7 @@
 #login_form
-  =form_tag '/login' do
+=form_tag '/login' do
+  %fieldset
+    %legend Login
     =label_tag 'email'
     =text_field_tag 'email', nil, :autofocus => true, :placeholder => "janedoe"
     =label_tag 'password'

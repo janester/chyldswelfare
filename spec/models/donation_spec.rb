@@ -15,9 +15,9 @@ describe Donation do
     end
 
     it "has an amount and date" do
-      donation = Donation.create(amount:100, date:"2013-03-02")
+      donation = Donation.create(amount:100, date:"2013-03-17")
       expect(donation.amount).to eq 100
-      expect(donation.date.to_s).to eq "2013-03-02"
+      expect(donation.date.to_s).to eq "2013-03-17"
     end
   end
 

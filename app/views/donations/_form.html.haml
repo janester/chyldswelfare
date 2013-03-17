@@ -1,0 +1,8 @@
+=form_for @donation, :remote => true do |f|
+  %p Donate on behalf of...
+  =f.label :name
+  =f.text_field :name, :value => @auth.name
+  =f.label :amount
+  =f.text_field :amount, :autofocus => true, :placeholder => "$100.00"
+  =f.submit nil, :class => "button radius tiny"
+  =button_to_function("Cancel", "cancel_donation_form()", :class => "button radius tiny alert")

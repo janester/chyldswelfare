@@ -12,8 +12,41 @@ describe "Donations" do
     # end
 
     it "should have button Donate" do
+      login_to_system
       visit donations_path
       page.should have_link("Donate")
     end
+
+    it "shows the new donation form", :js => true do
+      login_to_system
+      visit donations_path
+      click_link("Donate")
+      page.should have_button("Create Donation")
+    end
+
+    it "hide the form when cancel is pressed", :js => true do
+      login_to_system
+      visit donations_path
+      click_link("Donate")
+      click_button("Cancel")
+      page.should_not have_button("Create Donation")
+    end
   end
+
+  describe "POST /donations" do
+    it "creates a new donation and shows it in the list", :js => true do
+      login_to_system
+      visit donations_path
+      click_link("Donate")
+      fill_in("Amount", :with => 100)
+    end
+  end
+end
+
+def login_to_system
+  user = User.create(email:"jane@jane.com", name:"janeliza", password:"abc", password_confirmation:"abc")
+  visit login_path
+  fill_in("email", :with => user.email)
+  fill_in("password", :with => "abc")
+  click_button("KickShip")
 end

@@ -1,0 +1,9 @@
+%tr
+  %th Donor
+  %th Amount
+  %th Date
+-@donations.each do |donation|
+  %tr
+    %td= donation.name
+    %td= number_to_currency(donation.amount)
+    %td= donation.date

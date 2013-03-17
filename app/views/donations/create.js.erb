@@ -1,0 +1,4 @@
+$("#donation_form").empty();
+$("#donation_form").text("You Have Successfully Donated. Thank You!");
+$("#donation_form").fadeOut(3000, function(){$("#form").text("").hide();})
+$("#donations_table").empty().append("<%=j render :partial => 'donations' %>");

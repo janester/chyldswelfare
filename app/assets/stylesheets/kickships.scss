@@ -7,20 +7,43 @@
     margin-top: 20px;
   }
 }
-#donations_table {
+#donations_table, #user_donations_table {
   width: 100%;
   text-align: center;
 }
 
-#application_image {
+.application_image {
   img {
     height: 200px;
     width: 200px;
+    border: 1px solid black;
   }
 }
-#application_info {
+.application_info {
   div {
     margin-top: 10px;
     margin-bottom: 10px;
+  }
+}
+
+.row .app_row {
+  margin-top: 20px;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.hide {
+  display: hidden;
+}
+
+#donations_chart {
+  border: 1px solid black;
+  height: 350px;
+}
+
+#ship_pic {
+  text-align: center;
+  img {
+    margin: auto;
   }
 }

@@ -9,4 +9,16 @@ class UsersController < ApplicationController
   def show
     @auth
   end
+
+  def chart
+    user = User.find(params[:id])
+    render :json => user.donations
+  end
+
+  def edit
+    user = User.find(params[:id])
+  end
+
+  def update
+  end
 end

@@ -13,6 +13,15 @@ class ApplicationsController < ApplicationController
     @auth.save
     @applications = Application.order(:votes).reverse
   end
+
+  def vote
+    app = Application.find(params[:id])
+    app.votes += 1
+    app.save
+    @auth.times_voted += 1
+    @auth.save
+    render :json => {applications:Application.order(:votes).reverse, user:@auth, donations:@auth.donations}
+  end
 end
 
 

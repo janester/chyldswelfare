@@ -1,19 +1,23 @@
--if @auth.present?
-  = link_to('Apply', new_application_path, :remote => true, :class => 'button radius success')
-
-#applications_form
+.row
+  .small-12.columns
+    %h1 Applications
+.row
+  .small-12.columns
+    -if @auth.present? && @auth.application.nil?
+      = link_to('Apply', new_application_path, :remote => true, :class => 'button radius success', :id => "app_page_btn")
+    #applications_form
 
 #applications_list
   -@applications.each do |application|
-    .row
+    .row.app_row
       .small-3.columns
-        #application_image
+        .application_image
           -if application.image.present?
             =image_tag(@auth.application.image)
           -else
             =image_tag('http://insight-dev.glos.ac.uk/departments/lis/lc/PublishingImages/default-profile-image.jpg')
       .small-7.columns
-        #application_info
+        .application_info
           %div
             %b Tagline:
             = application.tagline
@@ -24,3 +28,7 @@
             %b Bio:
             = application.bio
       .small-2.columns
+        .aid.hide= application.id
+        .vote_button
+          -if @auth.present? && (@auth.donations.length > 0 && application.user_id != @auth.id && @auth.donations.length > @auth.times_voted)
+            =link_to("Vote", "#", :class => "button radius")

@@ -2,15 +2,6 @@ require "spec_helper"
 
 describe "Donations" do
   describe "GET /donations" do
-    # it "lists all the donations" do
-    #   visit donations_path
-    #   user = User.create(name:"jane")
-    #   donation = Donation.create(amount:1000)
-    #   user.donations << donation
-    #   page.should have_text(user.name)
-    #   page.should have_text("1000.0")
-    # end
-
     it "should have button Donate" do
       login_to_system
       visit donations_path
@@ -38,7 +29,9 @@ describe "Donations" do
       login_to_system
       visit donations_path
       click_link("Donate")
-      fill_in("Amount", :with => 100)
+      fill_in("donation_amount", :with => 100)
+      click_button("Create Donation")
+      page.should have_text("$100.00")
     end
   end
 end

@@ -1,0 +1,11 @@
+.row
+  .small-12.columns
+    %h1 Welcome to KickShips!
+.row
+  .small-8.small-centered.columns
+    #ship_pic
+      = image_tag("http://www.nmu.edu/internationalprograms/sites/DrupalInternationalPrograms/files/UserFiles//Pictures/Pre-Drupal/Images/Scholarships.jpg")
+    %h3 Here's the deal:
+    %p Taleggio cheeseburger hard cheese. The big cheese caerphilly hard cheese say cheese roquefort pecorino taleggio brie. Babybel taleggio say cheese mozzarella ricotta cheese and biscuits dolcelatte emmental. Halloumi camembert de normandie swiss brie caerphilly macaroni cheese manchego cheese on toast. Cheesy feet feta cheese strings goat smelly cheese taleggio port-salut cut the cheese. Cheddar blue castello airedale halloumi boursin swiss monterey jack parmesan. Feta gouda who moved my cheese pecorino gouda bavarian bergkase ricotta danish fontina. Parmesan queso manchego cheeseburger.
+    -if @auth.nil?
+      =link_to("Register", new_user_path, :class => "button radius", :id => "home_register_button")
